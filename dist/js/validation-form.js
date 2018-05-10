@@ -20,7 +20,9 @@ form.addEventListener('submit', (e) =>{
 		e.preventDefault();
 		inputName.focus();
 	}
+
 	
+
 	else if(inputName.value.length <3){
 		containerNotificacion.innerHTML = `<p class=\"notification__error\">El nombre es demasiado corto.</p> 
 			<div class=\"notification__close\"> </div>`;
@@ -28,11 +30,12 @@ form.addEventListener('submit', (e) =>{
 		inputName.focus();
 	}
 	else if(!caracteres.test(inputName.value)){
-		containerNotificacion.innerHTML = `<p class=\"notification__error\">El nombre no puede contener números o caracteres especiales.</p> 
+		containerNotificacion.innerHTML = `<p class=\"notification__error\">El nombre no puede contener caracteres especiales o espacios en blanco.</p> 
 			<div class=\"notification__close\"> </div>`;
 		e.preventDefault();
 		inputName.focus();
 	}
+	
 	else if(!exprEmail.test(inputEmail.value)){
 		nameUser = inputName.value;
 		containerNotificacion.innerHTML = `<p class=\"notification__error\"> ${nameUser.toLowerCase()}, el email no tiene un formato adecuado.</p> 
@@ -41,9 +44,15 @@ form.addEventListener('submit', (e) =>{
 		inputEmail.focus();
 	}
 	else{
-		containerNotificacion.innerHTML = `<p class=\"notification__error\"> Todo bien, todo correcto, y yo que me alegro.</p>
-			<div class=\"notification__close\"> </div>`;
-		//e.preventDefault();
+		for(let x=0; x<inputName.value.length; x++){
+			console.log(inputName.value[x]);
+			if(!isNaN(inputName.value[x])){
+				containerNotificacion.innerHTML = `<p class=\"notification__error\"> El nombre no puede contener números.</p>
+				<div class=\"notification__close\"> </div>`;
+				e.preventDefault();
+			}
+		}
+		
 	}
 })
 
