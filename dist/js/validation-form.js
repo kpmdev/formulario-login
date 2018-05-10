@@ -49,6 +49,7 @@ form.addEventListener('submit', (e) =>{
 			if(!isNaN(inputName.value[x])){
 				containerNotificacion.innerHTML = `<p class=\"notification__error\"> El nombre no puede contener números.</p>
 				<div class=\"notification__close\"> </div>`;
+				inputName.focus();
 				e.preventDefault();
 			}
 		}

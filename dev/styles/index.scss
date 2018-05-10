@@ -59,10 +59,14 @@
 	border: none;
 	border-radius: 3px;
 	color: #fff;
+	outline: none;
 	background-color: $blue-life;
 	&:hover{
 		cursor: pointer;
 		background-color: darken($blue-life, 7);
+	}
+	&:focus{
+		transform: scale(0.93);
 	}
 }
 .notification{
@@ -77,6 +81,10 @@
 	height: 55px;
 	padding: $gutter-d;
 	background-color: $rojo;
+	@include querie(mobile){
+		padding: 10px;
+		height: auto;
+	}
 	
 	&--is-visible{
 		display: flex;
