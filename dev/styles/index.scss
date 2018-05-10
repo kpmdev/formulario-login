@@ -1,0 +1,125 @@
+@import 'helpers/_base.scss';
+@import 'helpers/_queries.scss';
+@import 'helpers/_variables.scss';
+
+.container-main{
+	position: relative;
+	top: 90px; 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: $gutter-r;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	@include querie(tablet){
+		width: 100%;
+	}
+}
+
+.container-illustration{
+	width: 150px;
+	height: 150px;
+	margin-bottom: $gutter-d;
+	border-radius: 50%;
+}
+.illustration{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.container-form{
+	width: 100%;
+	padding-left: $gutter-r;
+	padding-right: $gutter-r;
+}
+.input{
+	display: block;
+	padding-left: $gutter-d;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	background-color: transparent;
+	&:focus{
+		border-bottom: 2px solid dodgerblue;
+	}
+}
+
+.input, 
+.submit{
+	margin-bottom: $gutter-d*2;
+	width: 100%;
+	height: 42px;
+	font-size: 0.9em;
+}
+
+.submit{
+	margin-top: $gutter-grid;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	background-color: $blue-life;
+	&:hover{
+		cursor: pointer;
+		background-color: darken($blue-life, 7);
+	}
+}
+.notification{
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 55px;
+	padding: $gutter-d;
+	background-color: $rojo;
+	
+	&--is-visible{
+		display: flex;
+	}
+}
+
+.notification__error{
+	margin-right: $gutter-r;
+	font-size: 1em;
+	color: #fff;
+	&:first-letter{
+		text-transform: uppercase;
+	}
+}
+
+.notification__close{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	&:hover::before, &:hover::after{
+		opacity: 1;
+		//background-color: darken($rojo, 7);
+	}
+	&::after, &::before{
+		content: "";
+		display: block;
+		position: absolute;
+		width: 2px;
+		height: 20px;
+		opacity: .6; 
+		background-color: #fff;
+		transform: rotate(45deg);
+	}
+	&::after{
+		transform: rotate(-45deg);
+	}
+}
+
+.legal__paragraph{
+	font-size: .80em;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+html
+	head
+		title Formulario + validación Javascript
+		link(rel="stylesheet", href="styles/index.css")
+		link(href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet")
+		meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+		meta(charset="utf-8")
+	body
+		div(class="notification")
+		div(class="container-main")
+			div(class="container-illustration")
+				img(src="images/flag.png", alt="Logo del sistema de registro" class="illustration" title="Logo del sistema de registro")
+			form(class="container-form" id="form-registry")
+				input(type="text" placeholder="Nombre" class="input input--username" id="inputName")
+				input(type="text" placeholder="Email" class="input" id="inputEmail")
+				input(type="submit" value="Suscribirme" class="submit")
+				div(class="legal")
+					p(class="legal__paragraph") Al enviar los datos aceptas nuestra política de tratamiento de datos establecida en la sección Políticas
+	<script src="js/validation-form.js"></script>
