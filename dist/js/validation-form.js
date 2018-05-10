@@ -9,12 +9,13 @@ const exprCamposVacios = /[a-z]/;
 const exprEmail       = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 const caracteres  = /^\w+([a-zA-Z])$/;
 
+var nameUser = "Recuerda";
 
 form.addEventListener('submit', (e) =>{
 	containerNotificacion.classList.add('notification--is-visible');
 
 	if(allInputs[0].value.length === 0 || allInputs[1].value.length === 0){
-		containerNotificacion.innerHTML = `<p class=\"notification__error\">Todos los campos son obligatorios.</p> 
+		containerNotificacion.innerHTML = `<p class=\"notification__error\"> ${nameUser.toLowerCase()}, todos los campos son obligatorios.</p> 
 			<div class=\"notification__close\"> </div>`;
 		e.preventDefault();
 		inputName.focus();
@@ -33,7 +34,8 @@ form.addEventListener('submit', (e) =>{
 		inputName.focus();
 	}
 	else if(!exprEmail.test(inputEmail.value)){
-		containerNotificacion.innerHTML = `<p class=\"notification__error\"> ${inputName.value.toLowerCase()}, el email no tiene un formato adecuado.</p> 
+		nameUser = inputName.value;
+		containerNotificacion.innerHTML = `<p class=\"notification__error\"> ${nameUser.toLowerCase()}, el email no tiene un formato adecuado.</p> 
 			<div class=\"notification__close\"> </div>`;
 		e.preventDefault();
 		inputEmail.focus();
