@@ -21,8 +21,6 @@ form.addEventListener('submit', (e) =>{
 		inputName.focus();
 	}
 
-	
-
 	else if(inputName.value.length <3){
 		containerNotificacion.innerHTML = `<p class=\"notification__error\">El nombre es demasiado corto.</p> 
 			<div class=\"notification__close\"> </div>`;
@@ -52,8 +50,7 @@ form.addEventListener('submit', (e) =>{
 				inputName.focus();
 				e.preventDefault();
 			}
-		}
-		
+		}	
 	}
 })
 
